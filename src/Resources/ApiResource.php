@@ -146,27 +146,27 @@ class ApiResource extends \ArrayObject
         null === $key ? array_push($this->attributes, $value) : $this->attributes[$key] = $value;
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->attributes);
     }
 
-    public function asort()
+    public function asort(): true
     {
         asort($this->attributes);
     }
 
-    public function ksort()
+    public function ksort(): true
     {
         ksort($this->attributes);
     }
 
-    public function offsetUnset($key)
+    public function offsetUnset($key): void
     {
         unset($this->attributes[$key]);
     }
 
-    public function getIterator()
+    public function getIterator(): Iterator
     {
         return new \ArrayIterator($this->attributes);
     }
